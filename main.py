@@ -14,9 +14,9 @@ def main():
     # myTree.find(200)
 
     myTree = BinaryTree()
-    myTree.insert(2)
-    myTree.insert(3)
-    myTree.insert(1)
+    #myTree.insert(2)
+    #myTree.insert(3)
+    #myTree.insert(1)
     print(myTree)
 
 if __name__ == "__main__":

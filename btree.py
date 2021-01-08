@@ -14,14 +14,12 @@ class BinaryTree(object):
             currNode.incrementCount()
         elif currNode.value > value:
             if currNode.getLeftChild() == None:
-                newNode = Node(value)
-                currNode.addLeftChild(newNode)
+                currNode.addLeftChild(Node(value))
             else:
                 self.insert(value, currNode.getLeftChild())
         elif currNode.value < value:
             if currNode.getRightChild() == None:
-                newNode = Node(value)
-                currNode.addRightChild(newNode)
+                currNode.addRightChild(Node(value))
             else:
                 self.insert(value, currNode.getRightChild())
 
