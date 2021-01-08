@@ -6,6 +6,34 @@ class Node(object):
         self.left = None
         self.right = None
 
+    def setValue(self, value):
+        self.value = value
+
+    def getValue(self):
+        return self.value
+
+    def getCount(self):
+        return self.count
+
+    def incrementCount(self):
+        self.count += 1
+
+    def getLeftChild(self):
+        return self.left
+
+    def getRightChild(self):
+        return self.right
+
+    def addLeftChild(self, n):
+        self.left = n
+
+    def addRightChild(self, n):
+        self.right = n
+
+    def __repr__(self):
+        temp = (self.value, self.count, self.left, self.right)
+        return str(temp)
+
     def insert(self, newNode):
         if self.value == None:
             self.value = newNode.value
