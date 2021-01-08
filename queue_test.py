@@ -1,3 +1,5 @@
+#python3 -m unittest queue_test
+
 import unittest
 from queue import Queue
 
