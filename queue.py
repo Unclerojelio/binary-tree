@@ -9,3 +9,5 @@ class Queue(object):
         return self.queue == []
     def size(self):
         return len(self.queue)
+    def __repr__(self):
+        return str(self.queue)
