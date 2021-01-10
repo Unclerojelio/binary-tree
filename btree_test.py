@@ -25,3 +25,17 @@ class TestTree(unittest.TestCase):
         self.assertEqual(myTree.height(), 2)
         myTree.insert(4)
         self.assertEqual(myTree.height(), 3)
+
+    def testIsBalanced(self):
+        myTree = BinaryTree()
+        self.assertTrue(myTree.isBalanced())
+        myTree.insert(2)
+        self.assertTrue(myTree.isBalanced())
+        myTree.insert(1)
+        self.assertTrue(myTree.isBalanced())
+        myTree.insert(3)
+        self.assertTrue(myTree.isBalanced())
+        myTree.insert(4)
+        self.assertTrue(myTree.isBalanced())
+        myTree.insert(5)
+        self.assertFalse(myTree.isBalanced())

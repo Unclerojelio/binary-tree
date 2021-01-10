@@ -34,13 +34,30 @@ class BinaryTree(object):
             if leftChild == None:
                 leftChildHeight = 0
             else:
-                leftChildHeight = leftChild.height()
+                leftChildHeight = self.height(leftChild)
             if rightChild == None:
                 rightChildHeight = 0
             else:
-                rightChildHeight = rightChild.height()
+                rightChildHeight = self.height(rightChild)
             return 1 + max(leftChildHeight, rightChildHeight)
 
+    def isBalanced(self, currNode=None):
+        if self.root == None:
+            return True
+        elif currNode == None:
+            return self.isBalanced(self.root)
+        else:
+            leftChild = currNode.getLeftChild()
+            rightChild = currNode.getRightChild()
+            if leftChild == None:
+                leftChildHeight = 0
+            else:
+                leftChildHeight = self.height(leftChild)
+            if rightChild == None:
+                rightChildHeight = 0
+            else:
+                rightChildHeight = self.height(rightChild)
+            return abs(leftChildHeight - rightChildHeight) <= 1
 
     def printPreorder(self):
         self.root.printPreorder()
@@ -48,8 +65,6 @@ class BinaryTree(object):
         self.root.printInorder()
     def printPostorder(self):
         self.root.printPostorder()
-    def isBalanced(self):
-        return self.root.isBalanced()
     def find(self, value):
         return self.root.find(value)
 
