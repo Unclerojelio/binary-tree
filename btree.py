@@ -23,14 +23,31 @@ class BinaryTree(object):
             else:
                 self.insert(value, currNode.getRightChild())
 
+    def height(self, currNode=None):
+        if self.root == None:
+            return 0
+        elif currNode == None:
+            return self.height(self.root)
+        else:
+            leftChild = currNode.getLeftChild()
+            rightChild = currNode.getRightChild()
+            if leftChild == None:
+                leftChildHeight = 0
+            else:
+                leftChildHeight = leftChild.height()
+            if rightChild == None:
+                rightChildHeight = 0
+            else:
+                rightChildHeight = rightChild.height()
+            return 1 + max(leftChildHeight, rightChildHeight)
+
+
     def printPreorder(self):
         self.root.printPreorder()
     def printInorder(self):
         self.root.printInorder()
     def printPostorder(self):
         self.root.printPostorder()
-    def height(self):
-        return self.root.height()
     def isBalanced(self):
         return self.root.isBalanced()
     def find(self, value):
