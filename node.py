@@ -88,23 +88,23 @@ class Node(object):
             self.right.printPostorder()
         print(self.value, self.count)
 
-    def height(self):
-        leftHeight = 0
-        rightHeight = 0
-        if self.left != None:
-            leftHeight = self.left.height()
-        if self.right != None:
-            rightHeight = self.right.height()
-        return 1 + max(leftHeight, rightHeight)
-
-    def isBalanced(self):
-        leftHeight = 0
-        rightHeight = 0
-        if self.left != None:
-            leftHeight = self.left.height()
-        if self.right != None:
-            rightHeight = self.right.height()
-        return abs(leftHeight - rightHeight) <= 1
+    # def height(self):
+    #     leftHeight = 0
+    #     rightHeight = 0
+    #     if self.left != None:
+    #         leftHeight = self.left.height()
+    #     if self.right != None:
+    #         rightHeight = self.right.height()
+    #     return 1 + max(leftHeight, rightHeight)
+    #
+    # def isBalanced(self):
+    #     leftHeight = 0
+    #     rightHeight = 0
+    #     if self.left != None:
+    #         leftHeight = self.left.height()
+    #     if self.right != None:
+    #         rightHeight = self.right.height()
+    #     return abs(leftHeight - rightHeight) <= 1
 
     def find(self,value):
         if self.value == None:
