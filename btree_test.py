@@ -13,6 +13,7 @@ class TestTree(unittest.TestCase):
         myTree = BinaryTree()
         myTree.insert(2)
         self.assertEqual(myTree.root.getValue(), 2)
+        self.assertEqual(str(myTree), '(2, 0, None, None)')
 
     def testHeight(self):
         myTree = BinaryTree()
