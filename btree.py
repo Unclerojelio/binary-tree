@@ -24,47 +24,58 @@ class BinaryTree(object):
                 self.insert(value, currNode.getRightChild())
 
     def height(self, currNode=None):
+        # if self.root == None:
+        #     return 0
+        # elif currNode == None:
+        #     return self.height(self.root)
+        # else:
+        #     leftChild = currNode.getLeftChild()
+        #     rightChild = currNode.getRightChild()
+        #     if leftChild == None:
+        #         leftChildHeight = 0
+        #     else:
+        #         leftChildHeight = self.height(leftChild)
+        #     if rightChild == None:
+        #         rightChildHeight = 0
+        #     else:
+        #         rightChildHeight = self.height(rightChild)
+        #     return 1 + max(leftChildHeight, rightChildHeight)
         if self.root == None:
             return 0
-        elif currNode == None:
-            return self.height(self.root)
         else:
-            leftChild = currNode.getLeftChild()
-            rightChild = currNode.getRightChild()
-            if leftChild == None:
-                leftChildHeight = 0
-            else:
-                leftChildHeight = self.height(leftChild)
-            if rightChild == None:
-                rightChildHeight = 0
-            else:
-                rightChildHeight = self.height(rightChild)
-            return 1 + max(leftChildHeight, rightChildHeight)
+            return self.root.height()
 
     def isBalanced(self, currNode=None):
+        # if self.root == None:
+        #     return True
+        # elif currNode == None:
+        #     return self.isBalanced(self.root)
+        # else:
+        #     leftChild = currNode.getLeftChild()
+        #     rightChild = currNode.getRightChild()
+        #     if leftChild == None:
+        #         leftChildHeight = 0
+        #     else:
+        #         leftChildHeight = self.height(leftChild)
+        #     if rightChild == None:
+        #         rightChildHeight = 0
+        #     else:
+        #         rightChildHeight = self.height(rightChild)
+        #     return abs(leftChildHeight - rightChildHeight) <= 1
         if self.root == None:
             return True
-        elif currNode == None:
-            return self.isBalanced(self.root)
         else:
-            leftChild = currNode.getLeftChild()
-            rightChild = currNode.getRightChild()
-            if leftChild == None:
-                leftChildHeight = 0
-            else:
-                leftChildHeight = self.height(leftChild)
-            if rightChild == None:
-                rightChildHeight = 0
-            else:
-                rightChildHeight = self.height(rightChild)
-            return abs(leftChildHeight - rightChildHeight) <= 1
+            return self.root.isBalanced()
 
     def printPreorder(self):
-        self.root.printPreorder()
+        if self.root != None:
+            self.root.printPreorder()
     def printInorder(self):
-        self.root.printInorder()
+        if self.root != None:
+            self.root.printInorder()
     def printPostorder(self):
-        self.root.printPostorder()
+        if self.root != None:
+            self.root.printPostorder()
     def find(self, value):
         return self.root.find(value)
 

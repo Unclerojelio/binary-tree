@@ -45,3 +45,17 @@ class TestNode(unittest.TestCase):
         m = Node()
         n.addRightChild(m)
         self.assertIsNotNone(n.getRightChild())
+
+    def testHeight(self):
+        n = Node()
+        self.assertEqual(n.height(), 1)
+
+    def testIsBalanced(self):
+        n = Node()
+        self.assertTrue(n.isBalanced())
+        m = Node()
+        n.addLeftChild(m)
+        self.assertTrue(n.isBalanced())
+        o = Node()
+        m.addLeftChild(o)
+        self.assertFalse(n.isBalanced())

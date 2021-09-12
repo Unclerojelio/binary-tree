@@ -14,10 +14,11 @@ def main():
     # myTree.find(200)
 
     myTree = BinaryTree()
-    #myTree.insert(2)
-    #myTree.insert(3)
-    #myTree.insert(1)
-    print(myTree)
+    myTree.insert(2)
+    myTree.insert(3)
+    myTree.insert(1)
+    myTree.printPostorder()
+    #print(myTree)
 
 if __name__ == "__main__":
     main()
