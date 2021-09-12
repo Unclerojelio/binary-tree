@@ -79,5 +79,9 @@ class BinaryTree(object):
     def find(self, value):
         return self.root.find(value)
 
+    def invert(self):
+        if self.root != None:
+            self.root.swap()
+
     def __repr__(self):
         return repr(self.root)

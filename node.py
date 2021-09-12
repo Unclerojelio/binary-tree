@@ -121,3 +121,12 @@ class Node(object):
                 self.right.find(value)
             else:
                 print("not found")
+
+    def swap(self):
+        temp = self.left
+        self.left = self.right
+        self.right = temp
+        if self.left != None:
+            self.left.swap()
+        if self.right != None:
+            self.right.swap()

@@ -59,3 +59,13 @@ class TestNode(unittest.TestCase):
         o = Node()
         m.addLeftChild(o)
         self.assertFalse(n.isBalanced())
+
+    def testSwap(self):
+        n = Node()
+        m = Node()
+        o = Node()
+        n.addLeftChild(m)
+        n.addRightChild(o)
+        n.swap()
+        self.assertEqual(n.getLeftChild(), o)
+        self.assertEqual(n.getRightChild(), m)
