@@ -23,13 +23,13 @@ class BinaryTree(object):
             else:
                 self.insert(value, currNode.getRightChild())
 
-    def height(self, currNode=None):
+    def height(self):
         if self.root == None:
             return 0
         else:
             return self.root.height()
 
-    def isBalanced(self, currNode=None):
+    def isBalanced(self):
         if self.root == None:
             return True
         else:

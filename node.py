@@ -108,19 +108,19 @@ class Node(object):
 
     def find(self,value):
         if self.value == None:
-            print("not found")
+            return None
         elif self.value == value:
-            print(self.count)
+            return self.count
         elif value < self.value:
             if self.left != None:
-                self.left.find(value)
+                return self.left.find(value)
             else:
-                print("not found")
+                return None
         else:
             if self.right != None:
-                self.right.find(value)
+                return self.right.find(value)
             else:
-                print("not found")
+                return None
 
     def swap(self):
         temp = self.left

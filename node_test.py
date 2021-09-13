@@ -1,4 +1,6 @@
 import unittest
+import contextlib
+import io
 from node import Node
 
 class TestNode(unittest.TestCase):
@@ -69,3 +71,13 @@ class TestNode(unittest.TestCase):
         n.swap()
         self.assertEqual(n.getLeftChild(), o)
         self.assertEqual(n.getRightChild(), m)
+
+    def testRepr(self):
+        n = Node(3)
+        n.incrementCount()
+        self.assertEqual(str(n), "(3, 1, None, None)")
+
+    def testFind(self):
+        n = Node(3)
+        n.incrementCount()
+        self.assertEqual(n.find(3), 1)
