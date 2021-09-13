@@ -81,3 +81,14 @@ class TestNode(unittest.TestCase):
         n = Node(3)
         n.incrementCount()
         self.assertEqual(n.find(3), 1)
+
+    def testTotal(self):
+        n = Node()
+        n.incrementCount()
+        m = Node()
+        m.incrementCount()
+        o = Node()
+        o.incrementCount()
+        n.addLeftChild(m)
+        n.addRightChild(o)
+        self.assertEqual(n.total(), 3)

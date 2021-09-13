@@ -130,3 +130,14 @@ class Node(object):
             self.left.swap()
         if self.right != None:
             self.right.swap()
+
+    def total(self):
+        if self.left == None:
+            leftCount = 0
+        else:
+            leftCount = self.left.total()
+        if self.right == None:
+            rightCount = 0
+        else:
+            rightCount = self.right.total()
+        return self.count + leftCount + rightCount

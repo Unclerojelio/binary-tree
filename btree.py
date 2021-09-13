@@ -36,11 +36,18 @@ class BinaryTree(object):
             self.root.printPostorder()
 
     def find(self, value):
-        return self.root.find(value)
+        if self.root != None:
+            return self.root.find(value)
 
     def invert(self):
         if self.root != None:
             self.root.swap()
+
+    def total(self):
+        if self.root == None:
+            return 0
+        else:
+            return self.root.total()
 
     def __repr__(self):
         return repr(self.root)

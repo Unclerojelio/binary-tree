@@ -3,6 +3,7 @@
 import unittest
 import contextlib
 import io
+from random import randint
 from btree import BinaryTree
 
 class TestTree(unittest.TestCase):
@@ -82,6 +83,7 @@ class TestTree(unittest.TestCase):
 
     def testFind(self):
         myTree = BinaryTree()
+        self.assertIsNone(myTree.find(2))
         myTree.insert(2)
         myTree.insert(3)
         myTree.insert(1)
@@ -98,3 +100,20 @@ class TestTree(unittest.TestCase):
         self.assertEqual(str(myTree), "(2, 1, (1, 1, None, None), (3, 1, None, None))")
         myTree.invert()
         self.assertEqual(str(myTree), "(2, 1, (3, 1, None, None), (1, 1, None, None))")
+
+    def testTotal(self):
+        myTree = BinaryTree()
+        self.assertEqual(myTree.total(), 0)
+        myTree.insert(2)
+        myTree.insert(3)
+        myTree.insert(1)
+        myTree.insert(3)
+        self.assertEqual(myTree.total(), 4)
+
+    def testRandomInsert(self):
+        myTree = BinaryTree()
+        count_insertions = 1000
+        for _ in range(count_insertions):
+            value = randint(0,20)
+            myTree.insert(value)
+        self.assertEqual(myTree.total(), count_insertions)
