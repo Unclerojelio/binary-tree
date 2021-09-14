@@ -11,6 +11,12 @@ class BinaryTree(object):
         else:
             self.root.insert(Node(value))
 
+    def node_count(self):
+        if self.root == None:
+            return 0
+        else:
+            return self.root.node_count()
+
     def height(self):
         if self.root == None:
             return 0

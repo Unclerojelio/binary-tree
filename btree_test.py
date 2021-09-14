@@ -117,3 +117,13 @@ class TestTree(unittest.TestCase):
             value = randint(0,20)
             myTree.insert(value)
         self.assertEqual(myTree.total(), count_insertions)
+
+    def testNodeCount(self):
+        myTree = BinaryTree()
+        values = [10,7,8,13,17,5,6,11,12,3,4,15,16,14,1,2,18,20,0,19,9]
+        for i in values:
+            myTree.insert(i)
+        self.assertEqual(myTree.node_count(), len(values))
+
+
+
