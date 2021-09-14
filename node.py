@@ -141,3 +141,9 @@ class Node(object):
         else:
             rightCount = self.right.total()
         return self.count + leftCount + rightCount
+
+    def find_min(self):
+        if self.left == None:
+            return self
+        else:
+            return self.left.find_min()
