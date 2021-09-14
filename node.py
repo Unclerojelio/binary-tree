@@ -54,6 +54,9 @@ class Node(object):
             else:
                 self.right.insert(newNode)
 
+    def delete(self, value):
+        return 0
+
  #   def balance(self):
  #       leftHeight = 0
  #       rightHeight = 0
@@ -152,7 +155,7 @@ class Node(object):
         if self.left and self.right:
             return 2 + self.left.count_children() + self.right.count_children()
         elif self.left:
-            return 1 + self.left.count_children() 
+            return 1 + self.left.count_children()
         elif self.right:
             return 1 + self.right.count_children()
         else:
