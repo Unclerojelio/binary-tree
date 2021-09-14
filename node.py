@@ -148,12 +148,12 @@ class Node(object):
         else:
             return self.left.find_min()
 
-    def node_count(self):
+    def count_children(self):
         if self.left and self.right:
-            return 1 + self.left.node_count() + self.right.node_count()
+            return 2 + self.left.count_children() + self.right.count_children()
         elif self.left:
-            return 1 + self.left.node_count()
+            return 1 + self.left.count_children() 
         elif self.right:
-            return 1 + self.right.node_count()
+            return 1 + self.right.count_children()
         else:
-            return 1
+            return 0
