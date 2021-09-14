@@ -100,3 +100,12 @@ class TestNode(unittest.TestCase):
             node = Node(i)
             root.insert(node)
         self.assertEqual(root.find_min().getValue(), 0)
+
+    def testCountChildren(self):
+        n = Node()
+        m = Node()
+        o = Node()
+        self.assertEqual(n.count_children(), 0)
+        n.addLeftChild(m)
+        n.addRightChild(o)
+        self.assertEqual(n.count_children(), 2)

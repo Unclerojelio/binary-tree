@@ -8,6 +8,7 @@ def main():
         value = randint(0,20)
         myTree.insert(value)
     print("height: ", myTree.height(), myTree.root.left.height(), myTree.root.right.height())
+    print("size: {}".format(myTree.size()))
     print(myTree.isBalanced())
     myTree.printInorder()
     print (myTree.find(12))
