@@ -92,3 +92,11 @@ class TestNode(unittest.TestCase):
         n.addLeftChild(m)
         n.addRightChild(o)
         self.assertEqual(n.total(), 3)
+
+    def testFindMin(self):
+        root = Node()
+        values = [10,7,8,13,17,5,6,11,12,3,4,15,16,14,1,2,18,20,0,19,9]
+        for i in values:
+            node = Node(i)
+            root.insert(node)
+        self.assertEqual(root.find_min().getValue(), 0)
