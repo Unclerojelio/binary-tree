@@ -11,6 +11,10 @@ class BinaryTree(object):
         else:
             self.root.insert(value)
 
+    def delete(self, value):
+        if self.root:
+            self.root.delete(value)
+
     def size(self):
         if self.root == None:
             return 0
