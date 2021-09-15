@@ -3,6 +3,8 @@ class Node(object):
     def __init__(self, value=None):
         self.value = value
         self.count = 0
+        if value != None:
+            self.count = 1
         self.left = None
         self.right = None
         self.parent = None

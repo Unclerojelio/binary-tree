@@ -7,7 +7,6 @@ class BinaryTree(object):
     def insert(self, value):
         if self.root == None:
             self.root = Node(value)
-            self.root.incrementCount()
         else:
             self.root.insert(value)
 

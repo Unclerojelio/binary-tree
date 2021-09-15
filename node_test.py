@@ -57,7 +57,18 @@ class TestNode(unittest.TestCase):
         root = Node(2)
         root.insert(1)
         root.insert(3)
-        self.assertEqual(str(root), "(2, 0, (1, 1, None, None), (3, 1, None, None))")
+        self.assertEqual(str(root), "(2, 1, (1, 1, None, None), (3, 1, None, None))")
+
+    def testDelete(self):
+        root = Node(2)
+        root.insert(1)
+        root.insert(3)
+        root.delete(3)
+        self.assertEqual(str(root), "(2, 1, (1, 1, None, None), None)")
+        root.delete(1)
+        self.assertEqual(str(root), "(2, 1, None, None)")
+        root.delete(2)
+        #self.assertEqual(str(root), "(0, 0, None, None)")
 
     def testHeight(self):
         n = Node()
@@ -86,12 +97,12 @@ class TestNode(unittest.TestCase):
     def testRepr(self):
         n = Node(3)
         n.incrementCount()
-        self.assertEqual(str(n), "(3, 1, None, None)")
+        self.assertEqual(str(n), "(3, 2, None, None)")
 
     def testFind(self):
         n = Node(3)
         n.incrementCount()
-        self.assertEqual(n.find(3), 1)
+        self.assertEqual(n.find(3), 2)
 
     def testTotal(self):
         n = Node()
