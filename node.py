@@ -48,17 +48,44 @@ class Node(object):
             if self.left == None:
                 self.left = Node(value)
                 self.left.count = 1
+                self.left.parent = self
             else:
                 self.left.insert(value)
         else:
             if self.right == None:
                 self.right = Node(value)
                 self.right.count = 1
+                self.right.parent = self
             else:
                 self.right.insert(value)
 
+    def replace_node_in_parent(self, new_value = None):
+        if self.parent:
+            if self == self.parent.left:
+                self.parent.left = new_value
+            else:
+                self.parent.right = new_value
+        if new_value:
+            new_value.parent = self.parent
+
     def delete(self, value):
-        return 0
+        if value < self.value:
+            self.left.delete(value)
+            return
+        if value > self.value:
+            self.right.delete(value)
+            return
+        if self.left and self.right:
+            successor = self.right.find_min()
+            self.value = successor.value
+            self.count = successor.count
+            successor.delete(value)
+        elif self.left:
+            self.replace_node_in_parent(self.left)
+        elif self.right:
+            self.replace_node_in_parent(self.right)
+        else:
+            self.replace_node_in_parent(None)
 
  #   def balance(self):
  #       leftHeight = 0

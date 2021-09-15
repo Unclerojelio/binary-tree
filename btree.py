@@ -13,7 +13,12 @@ class BinaryTree(object):
 
     def delete(self, value):
         if self.root:
-            self.root.delete(value)
+            if self.root.getLeftChild() == None and \
+            self.root.getRightChild() == None and \
+            self.root.getValue() == value:
+                self.root = None
+            else:
+                self.root.delete(value)
 
     def size(self):
         if self.root == None:

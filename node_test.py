@@ -55,8 +55,8 @@ class TestNode(unittest.TestCase):
 
     def testInsert(self):
         root = Node(2)
-        root.insert(Node(1))
-        root.insert(Node(3))
+        root.insert(1)
+        root.insert(3)
         self.assertEqual(str(root), "(2, 0, (1, 1, None, None), (3, 1, None, None))")
 
     def testHeight(self):

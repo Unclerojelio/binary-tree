@@ -126,6 +126,14 @@ class TestTree(unittest.TestCase):
             myTree.insert(i)
         self.assertEqual(myTree.size(), len(values))
 
+    def testDeleteRoot(self):
+        myTree = BinaryTree()
+        self.assertIsNone(myTree.root)
+        myTree.insert(8)
+        self.assertIsNotNone(myTree.root)
+        myTree.delete(8)
+        self.assertIsNone(myTree.root)
+
     def testDelete(self):
         myTree = BinaryTree()
         values = [10,7,8,13,17,5,6,11,12,3,4,15,16,14,1,2,18,20,0,19,9]
