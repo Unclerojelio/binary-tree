@@ -9,6 +9,7 @@ class TestNode(unittest.TestCase):
         n = Node()
         self.assertIsNone(n.getValue())
         self.assertEqual(n.getCount(), 0)
+        self.assertIsNone(n.parent)
         self.assertIsNone(n.getLeftChild())
         self.assertIsNone(n.getRightChild())
         n = Node(1)
@@ -27,6 +28,10 @@ class TestNode(unittest.TestCase):
         n = Node()
         n.incrementCount()
         self.assertEqual(n.getCount(), 1)
+
+    def testGetParent(self):
+        n = Node()
+        self.assertIsNone(n.getParent())
 
     def testGetLeftChild(self):
         n = Node()
@@ -47,6 +52,12 @@ class TestNode(unittest.TestCase):
         m = Node()
         n.addRightChild(m)
         self.assertIsNotNone(n.getRightChild())
+
+    def testInsert(self):
+        root = Node(2)
+        root.insert(Node(1))
+        root.insert(Node(3))
+        self.assertEqual(str(root), "(2, 0, (1, 1, None, None), (3, 1, None, None))")
 
     def testHeight(self):
         n = Node()

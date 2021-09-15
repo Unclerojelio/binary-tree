@@ -5,6 +5,7 @@ class Node(object):
         self.count = 0
         self.left = None
         self.right = None
+        self.parent = None
 
     def setValue(self, value):
         self.value = value
@@ -17,6 +18,9 @@ class Node(object):
 
     def incrementCount(self):
         self.count += 1
+
+    def getParent(self):
+        return self.parent
 
     def getLeftChild(self):
         return self.left
