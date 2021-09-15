@@ -3,9 +3,13 @@
 import unittest
 import contextlib
 import io
+import sys
 from random import randint
 from btree import BinaryTree
 
+INT_MAX = sys.maxsize
+INT_MIN = -sys.maxsize - 1
+ 
 class TestTree(unittest.TestCase):
 
     def testCreate(self):
@@ -43,6 +47,12 @@ class TestTree(unittest.TestCase):
         self.assertTrue(myTree.isBalanced())
         myTree.insert(5)
         self.assertFalse(myTree.isBalanced())
+
+    def testIsBST(self):
+        myTree = BinaryTree()
+        self.assertTrue(myTree.isBST())
+        myTree.insert(10)
+        self.assertTrue(myTree.isBST())
 
     def testPrintPostorder(self):
         captured_output = io.StringIO()

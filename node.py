@@ -141,6 +141,19 @@ class Node(object):
             rightHeight = self.right.height()
         return abs(leftHeight - rightHeight) <= 1
 
+    def isBST(self, minValue, maxValue):
+        if self.value < minValue or self.value > maxValue:
+            return False
+        if self.left and self.right:
+            return self.left.isBST(minValue, self.value - 1) and self.right.isBST(self.value + 1, \
+            maxValue)
+        elif self.left:
+            return self.left.isBST(minValue, self.value - 1)
+        elif self.right:
+            return self.right.isBST(self.value + 1, maxValue)
+        else:
+            return True
+
     def find(self,value):
         if self.value == None:
             return None
