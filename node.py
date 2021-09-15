@@ -34,25 +34,24 @@ class Node(object):
         temp = (self.value, self.count, self.left, self.right)
         return str(temp)
 
-    def insert(self, newNode):
+    def insert(self, value):
         if self.value == None:
-            self.value = newNode.value
+            self.value = value
             self.count = 1
-        elif newNode.value == self.value:
+        elif self.value == value:
             self.count += 1
-            return
-        elif newNode.value < self.value:
+        elif self.value > value:
             if self.left == None:
-                self.left = newNode
+                self.left = Node(value)
                 self.left.count = 1
             else:
-                self.left.insert(newNode)
+                self.left.insert(value)
         else:
             if self.right == None:
-                self.right = newNode
+                self.right = Node(value)
                 self.right.count = 1
             else:
-                self.right.insert(newNode)
+                self.right.insert(value)
 
  #   def balance(self):
  #       leftHeight = 0
@@ -152,7 +151,7 @@ class Node(object):
         if self.left and self.right:
             return 2 + self.left.count_children() + self.right.count_children()
         elif self.left:
-            return 1 + self.left.count_children() 
+            return 1 + self.left.count_children()
         elif self.right:
             return 1 + self.right.count_children()
         else:

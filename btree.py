@@ -4,12 +4,12 @@ class BinaryTree(object):
     def __init__(self):
         self.root = None
 
-    def insert(self, value, currNode=None):
+    def insert(self, value):
         if self.root == None:
             self.root = Node(value)
             self.root.incrementCount()
         else:
-            self.root.insert(Node(value))
+            self.root.insert(value)
 
     def size(self):
         if self.root == None:
