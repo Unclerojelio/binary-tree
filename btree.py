@@ -1,4 +1,7 @@
 from node import Node
+import sys
+INT_MAX = sys.maxsize
+INT_MIN = -sys.maxsize - 1
 
 class BinaryTree(object):
     def __init__(self):
@@ -37,6 +40,13 @@ class BinaryTree(object):
         else:
             return self.root.isBalanced()
 
+    def isBST(self):
+        """Determine if the tree is a valid BST."""
+        if self.root == None:
+            return True
+        else:
+            return self.root.isBST(INT_MIN, INT_MAX)
+        
     def printPreorder(self):
         if self.root != None:
             self.root.printPreorder()

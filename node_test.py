@@ -1,7 +1,12 @@
 import unittest
 import contextlib
 import io
+import sys
 from node import Node
+
+INT_MAX = sys.maxsize
+INT_MIN = -sys.maxsize - 1
+
 
 class TestNode(unittest.TestCase):
 
@@ -83,6 +88,20 @@ class TestNode(unittest.TestCase):
         o = Node()
         m.addLeftChild(o)
         self.assertFalse(n.isBalanced())
+
+    def testIsBST(self):
+        a = Node(20)
+        b = Node(10)
+        c = Node(30)
+        d = Node(5)
+        e = Node(40)
+        a.left = b
+        a.right = c
+        c.left = d
+        c.right = e
+        self.assertFalse(a.isBST(INT_MIN, INT_MAX))
+        d.value = 21
+        self.assertTrue(a.isBST(INT_MIN, INT_MAX))
 
     def testSwap(self):
         n = Node()
